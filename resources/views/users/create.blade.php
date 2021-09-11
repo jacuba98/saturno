@@ -38,15 +38,15 @@
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="roles" class="block font-medium text-sm text-gray-700">Roles</label>
-                            <select name="roles[]" id="roles" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
-                                @foreach($roles as $id => $role)
-                                    <option value="{{ $id }}"{{ in_array($id, old('roles', [])) ? ' selected' : '' }}>{{ $role }}</option>
-                                @endforeach
-                            </select>
-                            @error('roles')
-                                <p class="text-sm text-red-600">{{ $message }}</p>
-                            @enderror
+                          <label for="roles" class="block font-medium text-sm text-gray-700">Roles</label>
+                          <select class="form-select rounded-md w-full" name="roles[]" id="roles" required>
+                            @foreach($roles as $id => $role)
+                                <option value="{{ $id }}"{{ in_array($id, old('roles', [])) ? ' selected' : '' }}>{{ $role }}</option>
+                            @endforeach
+                          </select>
+                          @error('roles')
+                              <p class="text-sm text-red-600">{{ $message }}</p>
+                          @enderror
                         </div>
 
                         <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
